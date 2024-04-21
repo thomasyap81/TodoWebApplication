@@ -1,27 +1,35 @@
 package com.thomas.TodoWebApplication.login;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
 	
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private AuthenticationService authenticationService;
 	
-	//http://localhost:8080/login?nameid=thomas
-	@RequestMapping("login")
-	public String loginWeb(@RequestParam String nameid, ModelMap model) {
-		model.put("nameJSP", nameid);
-		
-		logger.debug("Request param is {}", nameid);
-		logger.info("info");
-		logger.warn("warn");
-		
-		System.out.println("Welcome " + nameid);
+	public LoginController(AuthenticationService authenticationservice) {
+		super();
+		this.authenticationService =authenticationservice;
+	}
+
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String gotoLoginPage() {
+		return "login";
+	}
+
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String gotoWelcomePage(@RequestParam String myname, @RequestParam String mypassword, ModelMap model) {
+
+		if (authenticationService.authenticate(myname, mypassword)) {
+			model.put("my_name", myname);
+//			model.put("my_password", mypassword);
+			return "welcome";
+		}
+		model.put("errorMessage", "Invalid Credentials! Please try again.");
 		return "login";
 	}
 
