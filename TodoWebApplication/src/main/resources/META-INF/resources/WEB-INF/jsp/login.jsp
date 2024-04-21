@@ -3,6 +3,6 @@
 		<title>My Login Page</title>
 	</head>
 	<body>
-		My Login Body
+		Welcome to my page ${nameJSP}!<!-- USING EXPRESSION LANGUAGE (EL) -->
 	</body>
 </html>
