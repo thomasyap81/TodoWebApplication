@@ -3,8 +3,9 @@
 		<title>Welcome Page</title>
 	</head>
 	<body>
-		<div>Welcome to MY Page!</div>
-		<div>Your name is ${my_name}</div>
+		<div>Welcome ${my_name}</div>
+		<hr>
 		<!--  <div>Your password is ${my_password}</div> -->
+		<div><a href="list-todos">Manage</a> your todos</div>
 	</body>
 </html>
