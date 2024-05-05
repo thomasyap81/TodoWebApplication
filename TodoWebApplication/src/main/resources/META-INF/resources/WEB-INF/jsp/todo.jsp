@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Enter Todo DetaiSls </h1>
+			<h1>Enter Todo Details </h1>
 				<form:form method="post" modelAttribute="todo">
 					Description: <form:input type="text" path="description" required="required"/>
 					<form:errors path="description" cssClass="text-warning"/>
