@@ -1,4 +1,4 @@
-package com.thomas.TodoWebApplication.login;
+package com.thomas.TodoWebApplication.welcome;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
