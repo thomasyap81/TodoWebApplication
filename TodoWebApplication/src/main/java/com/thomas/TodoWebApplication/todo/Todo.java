@@ -2,14 +2,24 @@ package com.thomas.TodoWebApplication.todo;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Entity;
 import jakarta.validation.constraints.Size;
 
 //Database (MySQL)
 //Static List of todos => Database (in-memory H2, MySQL)
+@Entity//(name="TodoABC")
 public class Todo {
-
+	
+	@Id
+	@GeneratedValue
 	private int id;
+	
+	//@Column(name="Name")
 	private String username;
+	
 	@Size(min=10,message="Enter at least 10 characters")
 	private String description;
 	private LocalDate targetDate;
@@ -23,7 +33,7 @@ public class Todo {
 		this.targetDate = targetDate;
 		this.done = done;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
