@@ -10,8 +10,17 @@ import jakarta.validation.constraints.Size;
 
 //Database (MySQL)
 //Static List of todos => Database (in-memory H2, MySQL)
+
+//JPA
+// BEAN -> Database Table
+
+
 @Entity//(name="TodoABC")
 public class Todo {
+	
+	public Todo(){
+		
+	}
 	
 	@Id
 	@GeneratedValue
