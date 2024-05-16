@@ -48,3 +48,36 @@ Done
    which is the standard URI for the Spring form library.
 
 -->
+
+##Docker
+docker run --detach 
+--env MYSQL_ROOT_PASSWORD=dummypassword 
+--env MYSQL_USER=todos-user 
+--env MYSQL_PASSWORD=dummytodos 
+--env MYSQL_DATABASE=todos 
+--name mysql 
+--publish 3306:3306 mysql:8-oracle
+
+#-- to check: cmd: 
+--docker version
+--docker container ls
+#-- Using MySQL Shell to connect database
+-- mysqlsh
+-- \connect root@localhost:3306
+-- \use todos
+-- \sql
+-- GRANT PROCESS ON *.* TO 'todos-user'@'localhost';
+-- FLUSH PRIVILEGES;
+
+or
+
+--mysqlsh
+--\connect todos-user@localhost:3306
+-- \use todos
+--\sql
+--select * from todo;
+
+
+
+
+
